@@ -81,8 +81,33 @@ WebElement submit = driver.findElement(By.xpath("//input[@name='register']"));
 
 submit.click();
 
+WebElement signOff = driver.findElement(By.xpath("//a[contains(text(),'SIGN-OFF')]"));
+
+signOff.click();
+
+WebElement signIn = driver.findElement(By.xpath("//input[@name='userName']"));
+
+signIn.sendKeys("bootcamp");
+
+WebElement signInPass = driver.findElement(By.xpath("//input[@name='password']"));
+
+signInPass.sendKeys("11111");
 
 
-	}
+WebElement logIn = driver.findElement(By.xpath("//input[@value='Login']"));
 
-}
+logIn.click();
+
+if(driver.getCurrentUrl().equals("http://newtours.demoaut.com/mercuryreservation.php")) {
+
+	System.out.println("USPESAN TEST");}
+	 
+else System.out.println("NEUSPESAN TEST");
+	
+
+	driver.quit();
+
+
+	}}
+
+
