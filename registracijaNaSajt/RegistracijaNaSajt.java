@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegistracijaNaSajt {
 
@@ -56,10 +57,9 @@ WebElement postalCode = driver.findElement(By.xpath("//input[@name='postalCode']
 postalCode.click();
 postalCode.sendKeys("11000");
 
-WebElement country = driver.findElement(By.xpath("//select[@name='country']"));
+Select country = new Select(driver.findElement(By.xpath("//select[@name='country']")));
 
-postalCode.click();
-postalCode.sendKeys("SER");
+country.selectByVisibleText("SERBIA");
 
 WebElement username = driver.findElement(By.xpath("//input[@id='email']"));
 
@@ -80,6 +80,8 @@ confirmPassword.sendKeys("11111");
 WebElement submit = driver.findElement(By.xpath("//input[@name='register']"));
 
 submit.click();
+
+
 
 	}
 
