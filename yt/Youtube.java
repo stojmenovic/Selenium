@@ -10,37 +10,49 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class YT {
+public class Youtube {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		WebDriver driver = new ChromeDriver();
+		
+		
+		
+		//poziva se definisani url (YT u ovom slucaju)
 		
 		String url = "https://www.youtube.com";
 		
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		
-		driver.findElement(By.cssSelector("#search")).sendKeys("rick astley");
+		//nalazi se polje za pretragu i ukucava zeljeni pojam
+		WebElement pretraga = driver.findElement(By.cssSelector("#search"));
+		pretraga.sendKeys("dead south good company");
 		
-		String ytvideo = "div.style-scope.ytd-app:nth-child(12) div.style-scope.ytd-app:nth-child(1) ytd-masthead.masthead-finish div.style-scope.ytd-masthead:nth-child(4) ytd-searchbox.style-scope.ytd-masthead:nth-child(6) form.style-scope.ytd-searchbox button.style-scope.ytd-searchbox:nth-child(2) > yt-icon.style-scope.ytd-searchbox:nth-child(1)";
-		driver.findElement(By.cssSelector(ytvideo)).click();
+		//locira se dugme Search i klikne
+		WebElement searchButton = driver.findElement(By.cssSelector("div.style-scope.ytd-app:nth-child(12) div.style-scope.ytd-app:nth-child(1) ytd-masthead.masthead-finish div.style-scope.ytd-masthead:nth-child(4) ytd-searchbox.style-scope.ytd-masthead:nth-child(6) form.style-scope.ytd-searchbox button.style-scope.ytd-searchbox:nth-child(2) > yt-icon.style-scope.ytd-searchbox:nth-child(1)"));
+		searchButton.click();
 		
-		//WebElement videoIzNiza
+		//klik na locirani xpath prve pesme iz pretrage
+		WebElement prvaPesma = driver.findElement(By.xpath("/html[1]/body[1]/ytd-app[1]/div[1]/ytd-page-manager[1]/ytd-search[1]/div[1]/ytd-two-column-search-results-renderer[1]/div[1]/ytd-section-list-renderer[1]/div[2]/ytd-item-section-renderer[1]/div[2]/ytd-video-renderer[1]/div[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"));
 		
-		driver.findElement(By.xpath("//div[@id='contents']//ytd-video-renderer[1]//div[1]//div[1]//div[1]//div[1]//h3[1]//a[1]")).click();
-		//String videoIzNiza = "//div[@id='contents']//ytd-video-renderer[1]//div[1]//div[1]//div[1]//div[1]//h3[1]//a[1]";
+		prvaPesma.click();
 		
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		//pauzira se snimak
 		
 		WebElement pausePlayButton = driver.findElement(By.xpath("//button[@class='ytp-play-button ytp-button']"));
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         pausePlayButton.click();
 
+        //pokrece se druga pesma iz liste preporucenih pesama
         
         List<WebElement> lst1 = new ArrayList<>();
-       //List<WebElement> lst2 = driver.findElements(By.className(className));
+       
         List<WebElement> playSecondRecomended = driver.findElements(By.className("ytd-compact-video-renderer"));
 
         playSecondRecomended.get(2).click();
