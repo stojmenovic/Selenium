@@ -100,9 +100,9 @@ logIn.click();
 
 if(driver.getCurrentUrl().equals("http://newtours.demoaut.com/mercuryreservation.php")) {
 
-	System.out.println("USPESAN TEST");}
+	System.out.println("TEST JE USPESAN!");}
 	 
-else System.out.println("NEUSPESAN TEST");
+else System.out.println("TEST NIJE USPESAN!");
 	
 
 	driver.quit();
