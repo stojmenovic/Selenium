@@ -93,26 +93,32 @@ public class Rezervacija {
 
 		WebElement postCode = driver.findElement(By.xpath("//input[@id='card-holder-postalcode']"));
 		postCode.sendKeys("11000");
+		
+		WebElement address = driver.findElement(By.xpath("//textarea[@placeholder='Address']"));
+		address.sendKeys("Cara Dusana bb");
 
-		polje.sendKeys("Cara Dusana 21");
-
-		Select card = new Select(driver.findElement(By.xpath("//select[@id='country']")));
+		Select card = new Select(driver.findElement(By.xpath("//select[@id='cardtype']")));
 		card.selectByVisibleText("Visa");
 
-		polje.sendKeys("4532734719136528");
+		WebElement cardNr = driver.findElement(By.xpath("//input[@id='card-number']"));
+		cardNr.sendKeys("4485108839470942");
 
-		polje.sendKeys("Nov (11)");
-
-		polje.sendKeys("2021");
-
-		polje.sendKeys("931");
-
+		WebElement cardExpM = driver.findElement(By.xpath("//select[@id='expiry-month']"));
+		cardExpM.sendKeys("Apr (04)");
+		
+		WebElement cardExpY = driver.findElement(By.xpath("//select[@id='expiry-year']"));
+		cardExpY.sendKeys("2023");
+		
+		WebElement cvv = driver.findElement(By.xpath("//input[@id='cvv']"));
+		cvv.sendKeys("367");
+		
 		WebElement policy = driver.findElement(By.xpath("//input[@id='policy']"));
 		policy.click();
 
 		WebElement payAsGuest = driver.findElement(By.xpath("//button[@name='guest']"));
 		payAsGuest.click();
 
+		driver.quit();
 	}
 
 }
