@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
 	/* Defining of final values for web paths */
-	private static final String LOGUSERNAME = "//input[@placeholder='username']";
-	private static final String LOGPASSWORD = "//input[@placeholder='password']";
-	private static final String LOGINBUTTON = "//input[@value='Log in']";
+	private static final String LOGUSERNAME = "//input[@placeholder='korisničko ime']";
+	private static final String LOGPASSWORD = "//input[@placeholder='lozinka']";
+	private static final String LOGINBUTTON = "//input[@value='Uloguj se']";
 	private static final String LOGOUTBUTTON = "//a[@id='logoutBtn']";
 
 	/* User Login */

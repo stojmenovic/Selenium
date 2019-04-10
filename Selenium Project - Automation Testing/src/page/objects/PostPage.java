@@ -7,20 +7,20 @@ import org.openqa.selenium.*;
 
 public class PostPage {
 	/* Defining of final values for Post (create, modify and delete) */
-	public static final String PAGE_URL2 = "http://localhost/izlet/dashboard.php#";
-	private static final String CREATEPOST = "//a[contains(text(),'Make a post')]";
+	public static final String PAGE_URL2 = "https://izlet.000webhostapp.com/izlet/dashboard.php#";
+	private static final String CREATEPOST = "//a[contains(text(),'Nova objava')]";
 	private static final String TEXTFIELD = "//textarea[@placeholder='Opis']";
 	private static final String POSTNAME = "//input[@placeholder='Naziv']";
-	private static final String POSTLOCATION = "//input[@placeholder='Lokacija']";
+	private static final String POSTLOCATION = "//input[@id='pac-input']";
 
-	private static final String POSTBUTTON = "//input[@value='Post']";
+	private static final String POSTBUTTON = "//input[@value='Objavi']";
 	private static final String POSTMENU = "fa-ellipsis-v";
 	private static final String POSTDELETE = "fa-trash-alt";
 	private static final String POSTEDIT = "fa-edit";
 	private static final String EDITTEXTFIELD = "//textarea[@id='description']";
 	private static final String EDITSUBBUTTON = "//div[@class='popupEdit']//input[@value='Post']";
 
-	/* Create new post button */
+	/* Create new post */
 	public static WebElement getCreatePost(WebDriver driver) {
 		WebElement wb = driver.findElement(By.xpath(CREATEPOST));
 		return wb;

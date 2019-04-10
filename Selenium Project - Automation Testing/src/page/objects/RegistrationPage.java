@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RegistrationPage {
 	/* Defining of final values for user registration page */
-	public static final String PAGE_URL = "http://localhost/izlet/index.php";
+	public static final String PAGE_URL = "https://izlet.000webhostapp.com/izlet/index.php";
 	private static final String FIRSTNAME = "//input[@name='firstname']";
 	private static final String LASTNAME = "//input[@name='lastname']";
 	private static final String REGUSERNAME = "//form[@action='processregister.php']//input[@name='username']";
